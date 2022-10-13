@@ -5,29 +5,88 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Arreglos con JavaScript</title>
 
-<script type="text/javascript" src="arrays.js">
+<script type="text/javascript">
+	let pila = new Array();
+	function resp(){
+		let op = document.getElementById('opcion').value;
+		let item = 1;
+		switch(op){
+			case '1':
+				alert("Para salir del ciclo de insersion, enviar un 0 como dato")
+				while(item != '0'){
+					item = prompt("Tecle un dato:", "");
+					pila.push(item);
+				}
+				pila.pop();
+				break;
+			case '2': 
+				imprimePila(pila);
+				break;
+			case '3': 
+				item = prompt("Dato a buscar:","");
+				extraerElemento(pila,item,0);
+				break;
+			case '4':
+				alert("Elemento a extraer:" + pila.pop());
+				break;
+			case '5':
+				item = prompt("Dato a eliminar:","");
+				extraerElemento(pila,item,1);
+				break;
+			case '6':
+				alert("Cantidad de elementos en la pila = "+  pila.length);
+				break;
+			case '7':
+				pila = [];
+				alert("Pila Vacía");
+				break;
+			case '8':
+				pila = [];
+				alert("Gracias por usar mi aplicación");
+				break;
+		}
+	}
+	function imprimePila(pila){
+		if(pila.length > 0){
+			for(let i = 0; i < pila.length ; i ++){
+					console.log("pila[" + i + "] = " + pila[i]);
+			}
+		}else{
+			console.log("Pila Vacia");
+		}
 	
+	}
+	function extraerElemento(pila,elemento,del){
+		let indice = pila.indexOf(elemento);
+		if(indice > -1){
+			if(del == 1)
+				alert("Eliminar elemento:" + pila.splice(indice,1)); 
+
+			else
+				alert(elemento + " se encuentra en la posición: " + indice);
+		}else{
+			alert("El elemento " + elemento + ", NO se encuentra en el arreglo");
+		}
+	}
 </script>
 </head>
 
 <body>
-
+	<center><h1>Aplicacion de Pilas en JavaScript y HTML</h1></center>
+	<hr><br>
+	<ol>
+		<li>Crear Pila</li>
+		<li>Ver datos en Pila</li>
+		<li>Buscar un dato</li>
+		<li>Extraer elemento de pila</li>
+		<li>Extraer dato de pila</li>
+		<li>Cantidad de elementos en pila</li>
+		<li>Limpiar pila</li>
+		<li>Salir</li>
+	</ol>
+	<label for="opcion">Seleccione una opción del menú:</label>
+	<input type="number" name="opcion" id="opcion" min='1' max = '7'>
+	<center><button type="button" id="btnEnviar" onclick="resp();">Enviar Selección</button></center>
 </body>
-<script >
-	let data = new Array();
-	data.user = "admin";
-	data.psw  = "admin123";
-	function datos(){
-	
-		fetch("http://localhost//APIREST_5TID1/auth.php", {
-		  method: 'POST', // or 'PUT'
-		  body: JSON.stringify(data), // data can be `string` or {object}!
-		  headers:{
-		    'Content-Type': 'application/json'
-		  }
-		});
-		
-	}
-	
-</script>
+
 </html>

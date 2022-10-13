@@ -1,50 +1,41 @@
-//CONST
-
-var edad = 12;
-let edad1 = 25;
-const edad2 = 45;
+//métodos de ordenamiento de arrays sort()
 /*
+const equipos = ['Real Madrid', 'Manchester Utd', 'Bayern Munich', 'Juventus'];
+//const equipos = new Array ('Real Madrid', 'Manchester Utd', 'Bayern Munich', 'Juventus');
 
-|  id   |  nomVar  | nivel  | function | value  |  type
-#000001    edad      global    null       12       var
-#000001    edad2     global    null      45       const
-#004500    edad2     local     this.suma  67       const
-#004522    edad      local    this.suma   34       let
-#004522    edad      local    this.suma   34       let
-*/
+console.log("Elementos en equipos: \n");
+//console.log(equipos);
 
+//funcion join () para abregar, despues de cada item, caracteres
 
-console.log(edad);
-console.log(edad1);
-console.log(edad2);
+//console.log(equipos.join(" | \n")); //convierte array en cadena 
+// ['Real Madrid', 'Manchester Utd', 'Bayern Munich', 'Juventus'] => Real Madrid | Manchester Utd | Bayern Munich | Juventus;
+alert(equipos.join(" | \n"));
 
-edad = 2;
-edad1 = 45;
-//edad2 = 50;
+//Utilizando el método sort(), se ordenan en orden ascendente
+//equipos = equipos.sort();
+equipos.sort(); 
 
-console.log(edad);
-console.log(edad1);
-console.log(edad2);
-
-function suma(){
-	const edad2 = 67;
-	let edad =34;
-	edad =3;
-	console.log("\n" + edad2);
-	console.log(edad);
-	console.log(edad1 + edad2);
-}
-
-suma();
+console.log("Elementos ordenados: \n");
+console.log(equipos.join(" | "));*/
 
 
-var edad = "Treinta";
-edad1 = "Cincuenta";
 
-console.log(edad);
-console.log(edad1);
+const numeros = [1,23,5,10,45,8];
+const numeros1 = [1,23,5,10,45,8];
 
-//con VAR se declaran variables, se pueden nombrar de la misma forma y re-declarar las variables en el mismo nivel y cambiar contenido
-//con LET se declaran variables, NO se pueden nombrar de la misma forma NI re-declarar las variables en el mismo nivel y pero si cambiar contenido
-//con CONST se declara una sola vez la variable y no se puede cambiar contenido
+console.log("Elementos en numeros: \n");
+console.log(numeros.join(" | "));
+
+//Utilizando el método sort(), se ordenan en orden ascendente
+numeros.sort(function(a, b){return a - b});
+
+numeros1.sort();
+
+console.log("Elementos ordenados: \n");
+console.log("Con sort(): \n" + numeros1.join(" | "));
+console.log("Con funcion de comparacion sort(): \n" +numeros.join(" | "));
+
+
+
 
